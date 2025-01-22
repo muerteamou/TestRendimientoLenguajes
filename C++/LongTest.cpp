@@ -7,7 +7,7 @@ const int FACTOR = 9999, ITERATIONS = 1'000'000'000;
 
 // Variables para almacenar los resultados de las operaciones y los tiempos de ejecución
 int multIntResult = 0;
-double multDoubleResult = 0, divResult = 0, timeInt = 0, timeDou = 0, timeDiv = 0;
+double minResult = 0, divResult = 0, timeSum = 0, timeMin = 0, timeDiv = 0;
 
 // Función para realizar una cuenta atrás de 3 segundos
 void cuentaAtras() {
@@ -31,7 +31,7 @@ int main() {
     // Capturar el tiempo final
     auto end = std::chrono::high_resolution_clock::now();
     // Calcular el tiempo de ejecución
-    timeInt = std::chrono::duration<double>(end - start).count();
+    timeSum = std::chrono::duration<double>(end - start).count();
 
     // Iniciar la prueba de multiplicación de decimales
     std::cout << "Comienza la multiplicación de decimales" << std::endl;
@@ -41,12 +41,12 @@ int main() {
     start = std::chrono::high_resolution_clock::now();
     // Realizar la multiplicación de decimales
     for (int i = 0; i < ITERATIONS; i++) {
-        multDoubleResult = FACTOR * 0.5;
+        minResult = FACTOR * 0.5;
     }
     // Capturar el tiempo final
     end = std::chrono::high_resolution_clock::now();
     // Calcular el tiempo de ejecución
-    timeDou = std::chrono::duration<double>(end - start).count();
+    timeMin = std::chrono::duration<double>(end - start).count();
 
     // Iniciar la prueba de división
     std::cout << "Comienza la división" << std::endl;
@@ -64,9 +64,9 @@ int main() {
     timeDiv = std::chrono::duration<double>(end - start).count();
 
     // Imprimir los resultados de los tiempos de ejecución
-    std::cout << "Tiempo de ejecución de la multiplicación de enteros: " << timeInt << " segundos" << std::endl;
-    std::cout << "Tiempo de ejecución de la multiplicación de decimales: " << timeDou << " segundos" << std::endl;
-    std::cout << "Tiempo de ejecución de la división: " << timeDiv << " segundos" << std::endl;
+    std::cout << "El tiempo de ejecucion de multiplicar enteros es: " << timeSum << " segundos. Resultado de la operación: " << multIntResult << "\n";
+    std::cout << "El tiempo de ejecucion de multiplicar decimales es: " << timeMin << " segundos. Resultado de la operación: " << minResult << "\n";
+    std::cout << "El tiempo de ejecucion de dividir es: " << timeDiv << " segundos. Resultado de la operación: " << divResult << "\n";
 
     return 0;
 }

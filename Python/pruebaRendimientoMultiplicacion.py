@@ -23,8 +23,3 @@ time4 = time.time()
 print("El tiempo de ejecución de multiplicar es: ", time3-time2)
 print("El tiempo de ejecución de dividir es: ", time4-time3)
 
-#¿Cómo multiplicar en Python?
-for i in range(1, 11):
-    for j in range(1, 11):
-        print('{:3}'.format(i * j), end=' ')
-    print()
