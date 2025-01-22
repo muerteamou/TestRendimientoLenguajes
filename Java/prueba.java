@@ -3,7 +3,7 @@ public class prueba {
     public static void main(String[] args) {
 
         // Constantes para el número de iteraciones y el factor de multiplicación
-        final int ITERATIONS = 1_000_000_000, factor = 9999; // 1.000 millonesde iteraciones y factor de multiplicación
+        final int ITERATIONS = 1_000_000_000, factor = 9999; // 1.000 millones de iteraciones y factor de multiplicación
 
         // Variables para almacenar los resultados de las operaciones
         int multIntResult = 0;
@@ -18,7 +18,7 @@ public class prueba {
         // Capturar el tiempo inicial en milisegundos
         start = System.currentTimeMillis();
 
-        // Primera operación: multiplicación
+        // Primera operación: multiplicación de enteros
         for (int i = 0; i < ITERATIONS; i++) {
             multIntResult = factor * 5;
         }
@@ -29,6 +29,7 @@ public class prueba {
         System.out.println("Comienza la multiplicación de decimales");
 
         iniciarCuentaAtras();
+
         // Capturar el tiempo inicial en milisegundos
         start = System.currentTimeMillis();
 
@@ -41,7 +42,9 @@ public class prueba {
         timeDou = (end - start) / 1000;
 
         System.out.println("Comienza la división");
+
         iniciarCuentaAtras();
+
         // Capturar el tiempo inicial en milisegundos
         start = System.currentTimeMillis();
 
@@ -49,8 +52,8 @@ public class prueba {
         for (int i = 0; i < ITERATIONS; i++) {
             divResult = factor / 2.0;
         }
+        // Capturar el tiempo final en milisegundos
         end = System.currentTimeMillis();
-
         timeDiv = (end - start) / 1000;
 
         // Imprimir los resultados
@@ -59,6 +62,7 @@ public class prueba {
         System.out.println("El tiempo de ejecución de dividir es: " + timeDiv + " segundos. Resultado de la operación: " + divResult);
     }
 
+    // Función para realizar una cuenta atrás de 3 segundos
     public static void iniciarCuentaAtras() {
         for (int i = 3; i > 0; i--) {
             System.out.println(i);
