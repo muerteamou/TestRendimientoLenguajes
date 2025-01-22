@@ -1,37 +1,60 @@
 #include <iostream>
-#include <chrono> // Para medir el tiempo
+#include <chrono> // Para medir el tiempo de ejecución
+#include <thread> // Para usar sleep_for
 
-int main() {
-    // Capturar el tiempo inicial en milisegundos
-    auto start1 = std::chrono::high_resolution_clock::now();
+// Definir constantes para los factores de multiplicación
 
-    // Primera operación: multiplicación
-    for (int i = 0; i < 1'000'000'000; i++) {
-        int multiplicacion = 2000 * 55555;
+const int FACTOR = 9999, ITERATIONS = 1'000'000'000;
+
+int multIntResult = 0;
+double multDoubleResult = 0, divResult = 0, timeInt = 0, timeDou = 0, timeDiv = 0;
+
+void cuentaAtras()
+{
+    for (int i = 3; i > 0; i--)
+    {
+        std::cout << i << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
-    auto end1 = std::chrono::high_resolution_clock::now();
+}
 
-    // Segunda operación: multiplicación con decimales
-    for (int i = 0; i < 1'000'000'000; i++) {
-        double multiplicacion = 9999 * 0.5;
+int main()
+{
+    std::cout << "Comienza multiplicación de enteros" << std::endl;
+    cuentaAtras();
+
+    auto start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < ITERATIONS; i++)
+    {
+        multIntResult = FACTOR * 5;
     }
-    auto end2 = std::chrono::high_resolution_clock::now();
+    auto end = std::chrono::high_resolution_clock::now();
+    timeInt = std::chrono::duration<double>(end - start).count();
 
-    // Tercera operación: división
-    for (int i = 0; i < 1'000'000'000; i++) {
-        double division = 9999 / 2.0;
+    std::cout << "Comienza la multiplicación de decimales" << std::endl;
+    cuentaAtras();
+
+    start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < ITERATIONS; i++)
+    {
+        multDoubleResult = FACTOR * 0.5;
     }
-    auto end3 = std::chrono::high_resolution_clock::now();
+    end = std::chrono::high_resolution_clock::now();
+    timeDou = std::chrono::duration<double>(end - start).count();
 
-    // Calcular los tiempos en segundos
-    double time1 = std::chrono::duration<double>(end1 - start1).count();
-    double time2 = std::chrono::duration<double>(end2 - end1).count();
-    double time3 = std::chrono::duration<double>(end3 - end2).count();
+    std::cout << "Comienza  división" << std::endl;
+    cuentaAtras();
+    start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < ITERATIONS; i++)
+    {
+        divResult = FACTOR / 2;
+    }
+    end = std::chrono::high_resolution_clock::now();
+    timeDiv = std::chrono::duration<double>(end - start).count();
 
-    // Imprimir los resultados
-    std::cout << "El tiempo de ejecucion de multiplicar enteros es: " << time1 << " segundos\n";
-    std::cout << "El tiempo de ejecucion de multiplicar decimales es: " << time2 << " segundos\n";
-    std::cout << "El tiempo de ejecucion de dividir es: " << time3 << " segundos\n";
+    std::cout << "El tiempo de ejecucion de multiplicar enteros es: " << timeInt << " segundos. Resultado de la operación: " << multIntResult << "\n";
+    std::cout << "El tiempo de ejecucion de multiplicar decimales es: " << timeDou << " segundos. Resultado de la operación: " << multDoubleResult << "\n";
+    std::cout << "El tiempo de ejecucion de dividir es: " << timeDiv << " segundos. Resultado de la operación: " << divResult << "\n";
 
     return 0;
 }

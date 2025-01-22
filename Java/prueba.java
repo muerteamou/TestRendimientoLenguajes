@@ -7,9 +7,7 @@ public class prueba {
 
         // Variables para almacenar los resultados de las operaciones
         int multIntResult = 0;
-        double multDoubleResult = 0, divResult = 0;
-
-        double timeIni = 0, timeFin = 0, timeInt = 0, timeDou = 0, timeDiv = 0;
+        double multDoubleResult = 0, divResult = 0, start = 0, end = 0, timeInt = 0, timeDou = 0, timeDiv = 0;
 
         System.out.println("Test de rendimiento de java - Manejo de bucles y operaciones matemáticas");
 
@@ -18,42 +16,42 @@ public class prueba {
         iniciarCuentaAtras();
 
         // Capturar el tiempo inicial en milisegundos
-        timeIni = System.currentTimeMillis();
+        start = System.currentTimeMillis();
 
         // Primera operación: multiplicación
         for (int i = 0; i < ITERATIONS; i++) {
             multIntResult = factor * 5;
         }
         // Capturar el tiempo final en milisegundos
-        timeFin = System.currentTimeMillis();
-        timeInt = (timeFin - timeIni) / 1000;
+        end = System.currentTimeMillis();
+        timeInt = (end - start) / 1000;
 
         System.out.println("Comienza la multiplicación de decimales");
 
         iniciarCuentaAtras();
         // Capturar el tiempo inicial en milisegundos
-        timeIni = System.currentTimeMillis();
+        start = System.currentTimeMillis();
 
         // Segunda operación: multiplicación con decimales
         for (int i = 0; i < ITERATIONS; i++) {
             multDoubleResult = factor * 0.5;
         }
         // Capturar el tiempo final en milisegundos
-        timeFin = System.currentTimeMillis();
-        timeDou = (timeFin - timeIni) / 1000;
+        end = System.currentTimeMillis();
+        timeDou = (end - start) / 1000;
 
         System.out.println("Comienza la división");
         iniciarCuentaAtras();
         // Capturar el tiempo inicial en milisegundos
-        timeIni = System.currentTimeMillis();
+        start = System.currentTimeMillis();
 
         // Tercera operación: división
         for (int i = 0; i < ITERATIONS; i++) {
             divResult = factor / 2.0;
         }
-        timeFin = System.currentTimeMillis();
+        end = System.currentTimeMillis();
 
-        timeDiv = (timeFin - timeIni) / 1000;
+        timeDiv = (end - start) / 1000;
 
         // Imprimir los resultados
         System.out.println("El tiempo de ejecución de multiplicar enteros es: " + timeInt + " segundos. Resultado de la operación: " + multIntResult);
