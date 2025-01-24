@@ -8,6 +8,7 @@ def countdown():
     for i in range(3, 0, -1):
         print(i)
         time.sleep(1)  # Pausa de 1 segundo
+    print("¡Calculando!")
 
 def main():
     # Constantes para el número de iteraciones y el factor de multiplicación
@@ -16,6 +17,7 @@ def main():
     CHUNK_SIZE = 10_000_000  # Tamaño del chunk para la división
     
     print("Test de rendimiento de Python con Numpy - Manejo de bucles y operaciones matemáticas")
+    print("------------------------------------------------------------------------------------")
 
     # Primera operación: multiplicación de enteros con Numpy
     print("Comienza la multiplicación de enteros con Numpy")
@@ -52,11 +54,14 @@ def main():
     
     end = time.time() # Capturar el tiempo final
     time_div_np = end - start # Calcular el tiempo de ejecución
+    
+    time_total = time_int_np + time_doub_np + time_div_np # Calcular el tiempo total de ejecución   
 
     # Imprimir los resultados
     print(f"El tiempo de ejecución de multiplicar enteros con Numpy es: {time_int_np:.2f} segundos. Resultado de la operación: {sumResult[0]}")
     print(f"El tiempo de ejecución de multiplicar decimales con Numpy es: {time_doub_np:.2f} segundos. Resultado de la operación: {mult_doub_result[0]}")
     print(f"El tiempo de ejecución de dividir con Numpy es: {time_div_np:.2f} segundos. Resultado de la operación: {div_result[0]}")
-
+    print(f"Tiempo total de ejecución: {time_total:.2f} segundos")
+    
 if __name__ == "__main__":
     main()

@@ -1,9 +1,9 @@
-public class prueba {
+public class Test {
 
     public static void main(String[] args) {
 
         // Constantes para el número de iteraciones y el factor de multiplicación
-        final int ITERATIONS = 1_000_000_000, factor = 9999; // 1.000 millones de iteraciones y factor de multiplicación
+        final int ITERATIONS = 100_000_000, factor = 9999; // 1.000 millones de iteraciones y factor de multiplicación
 
         // Variables para almacenar los resultados de las operaciones
         int multIntResult = 0;
@@ -59,6 +59,7 @@ public class prueba {
         System.out.println("El tiempo de ejecución de multiplicar enteros es: " + timeSum + " segundos. Resultado de la operación: " + multIntResult);
         System.out.println("El tiempo de ejecución de multiplicar decimales es: " + timeMin + " segundos. Resultado de la operación: " + minResult);
         System.out.println("El tiempo de ejecución de dividir es: " + timeDiv + " segundos. Resultado de la operación: " + divResult);
+        System.out.println("Tiempo total de ejecución: " + (timeSum + timeMin + timeDiv) + " segundos");
     }
 
     // Función para realizar una cuenta atrás de 3 segundos
@@ -71,5 +72,6 @@ public class prueba {
                 e.printStackTrace();
             }
         }
+        System.out.println("¡Calculando!");
     }
 }

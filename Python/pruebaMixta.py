@@ -8,12 +8,12 @@ def iniciar_cuenta_atras():
     for i in range(3, 0, -1):
         print(i)
         time.sleep(1)  # Pausa de 1 segundo
-
+    print("¡Calculando!")
 
 def main():
 
     # Constantes para el número de iteraciones y el factor de multiplicación
-    ITERATIONS = 1_000_000_000  # 1.000 millones de iteraciones
+    ITERATIONS = 100_000_000  # 1.000 millones de iteraciones
     factor = 9999  # Factor de multiplicación
 
     # Variables para almacenar los resultados de las operaciones

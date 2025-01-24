@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class primeNumbers {
+public class PrimeNumbers {
 
     /**
      * Verifica si un número es primo.

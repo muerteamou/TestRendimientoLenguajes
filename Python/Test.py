@@ -7,11 +7,11 @@ def iniciar_cuenta_atras():
     for i in range(3, 0, -1):
         print(i)
         time.sleep(1)  # Pausa de 1 segundo
-
+    print("¡Calculando!")
 
 def main():
     # Constantes para el número de iteraciones y el factor de multiplicación
-    ITERATIONS = 1_000_000_000  # 1.000 millones de iteraciones
+    ITERATIONS = 100_000_000  # 1.000 millones de iteraciones
     factor = 9999  # Factor de multiplicación
 
     # Variables para almacenar los resultados de las operaciones
@@ -20,9 +20,10 @@ def main():
     div_result = 0.0
 
     print("Test de rendimiento de Python - Manejo de bucles y operaciones matemáticas")
-
+    print("--------------------------------------------------------------------------")
     print("Comienza la multiplicación de enteros")
     iniciar_cuenta_atras()
+    
 
     # Capturar el tiempo inicial en segundos
     start = time.time()
@@ -62,11 +63,13 @@ def main():
     # Capturar el tiempo final en segundos
     end = time.time()
     time_div = end - start
+    time_total = time_int + time_double + time_div # Calcular el tiempo total de ejecución 
 
     # Imprimir los resultados
     print(f"El tiempo de ejecución de multiplicar enteros es: {time_int:.2f} segundos. Resultado de la operación: {sumResult}")
     print(f"El tiempo de ejecución de multiplicar decimales es: {time_double:.2f} segundos. Resultado de la operación: {minResult}")
     print(f"El tiempo de ejecución de dividir es: {time_div:.2f} segundos. Resultado de la operación: {div_result}")
+    print(f"Tiempo total de ejecución: {time_total:.2f} segundos")
 
 
 if __name__ == "__main__":
