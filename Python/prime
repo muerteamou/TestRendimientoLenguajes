@@ -1,0 +1,39 @@
+import math
+import time
+import numpy as np
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def get_first_100_primes():
+    primes = []
+    for number in range(2, 100000000):  # Adjust the range to ensure we get 1000000 primes
+        if len(primes) >= 100000:
+            break
+        if is_prime(number):
+            primes.append(number)
+    return primes
+
+def get_primes_with_numpy(limit):
+    sieve = np.ones(limit, dtype=bool)
+    sieve[:2] = False  # 0 and 1 are not primes
+    for num in range(2, int(math.sqrt(limit)) + 1):
+        if sieve[num]:
+            sieve[num*num:limit:num] = False
+    primes = np.nonzero(sieve)[0]
+    return primes
+
+
+
+# Calculate primes with numpy
+print("Calculating primes with numpy:")
+start = time.time()
+primes = get_first_100_primes()  # Adjust the limit as needed
+end = time.time()
+print("Execution time with numpy: ", end - start)
+print("Number of primes found:", len(primes))
