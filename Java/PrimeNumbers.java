@@ -5,9 +5,6 @@ public class PrimeNumbers {
 
     /**
      * Verifica si un número es primo.
-     * 
-     * @param n Número a verificar
-     * @return true si el número es primo, false en caso contrario
      */
     public static boolean isPrime(int n) {
         if (n <= 1) return false;
@@ -34,9 +31,6 @@ public class PrimeNumbers {
 
     /**
      * Calcula los primeros n números primos.
-     * 
-     * @param n Cantidad de números primos a calcular
-     * @return Lista con los números primos calculados
      */
     public static List<Integer> getPrimes(int n) {
         List<Integer> primes = new ArrayList<>();

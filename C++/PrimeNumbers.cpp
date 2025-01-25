@@ -6,12 +6,6 @@
 
 using namespace std;
 
-/**
- * Verifica si un número es primo.
- * 
- * @param n Número a verificar
- * @return true si el número es primo, false en caso contrario
- */
 bool isPrime(int n) {
     if (n <= 1) return false;
     for (int i = 2; i <= sqrt(n); i++) {
@@ -33,9 +27,6 @@ void countdown() {
 
 /**
  * Calcula los primeros n números primos.
- * 
- * @param n Cantidad de números primos a calcular
- * @return Vector con los números primos calculados
  */
 vector<int> getPrimes(int n) {
     vector<int> primes;
